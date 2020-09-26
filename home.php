@@ -29,7 +29,7 @@ if(!isset($_SESSION['USER'])){
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto ">
       <li class="nav-item active">
         <a class="nav-link" >Hi,<?php echo " {$_SESSION['USER']} ! " ; ?><span class="sr-only">(current)</span></a>
       </li>
@@ -49,80 +49,39 @@ if(!isset($_SESSION['USER'])){
         </div>
       </li>
 
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Staff
         </a>
         <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
+          <a class="dropdown-item text-white" href="staff.php">Staff Details</a>
+          <a class="dropdown-item text-white" href="attendance.php">Show Attendance</a>
+          <a class="dropdown-item text-white" href="onduty.php">Add Onduty</a>
+          <a class="dropdown-item text-white" href="payroll.php">Payroll</a>
           
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Billing
         </a>
         <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
+          <a class="dropdown-item text-white" href="inpatient_bill.php">Inpatient</a>
           <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
+          <a class="dropdown-item text-white" href="outpatient_bill.php">Outpatient</a>
           
         </div>
+        <li class="nav-item">
+        <a class="nav-link" href="consultation.php">Consultation</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Consulatation
-        </a>
-        <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
-          
-        </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ward
-        </a>
-        <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
-          
-        </div>
+           <li class="nav-item ">
+        <a class="nav-link" href="ward.php">Ward</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ambulance
-        </a>
-        <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
-          
-        </div>
+      <li class="nav-item ">
+        <a class="nav-link" href="ambulance.php">Ambulance</a>
       </li>
-<!--       <li class="nav-item">
-        <a class="nav-link" href="about.php">Admission</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Staff</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Billing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Consultation</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Ward</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Ambulance</a>
-      </li> -->
-      <li class="nav-item">
+      <li class="nav-item pl-3 pr-3">
         <a class="btn btn-outline-danger  " href="logout.php">Logout</a>
       </li>
       <!-- <li class="nav-item dropdown"> -->
@@ -139,9 +98,7 @@ if(!isset($_SESSION['USER'])){
       <!-- <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> -->
-      <!-- <li >
-        <a class="nav-link" >HI, <?php echo $_SESSION['username'];?> !</a>
-      </li> -->
+      
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0 pl-2">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

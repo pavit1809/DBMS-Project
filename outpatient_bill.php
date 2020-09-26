@@ -20,10 +20,10 @@ mysqli_select_db($con,'hospital');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-	DBMS	
-	</title>
-	<meta charset="utf-8">
+  <title>
+  DBMS  
+  </title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -45,7 +45,7 @@ mysqli_select_db($con,'hospital');
         <a class="nav-link" href="home.php">Home</a>
       </li>
 
-      <li class="nav-item dropdown active">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admission
         </a>
@@ -69,7 +69,7 @@ mysqli_select_db($con,'hospital');
           
         </div>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Billing
         </a>
@@ -80,13 +80,13 @@ mysqli_select_db($con,'hospital');
           
         </div>
       </li>
-      <li class="nav-item ">
+     <li class="nav-item">
         <a class="nav-link" href="consultation.php">Consultation</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="ward.php">Ward</a>
       </li>
-      <li class="nav-item ">
+       <li class="nav-item ">
         <a class="nav-link" href="ambulance.php">Ambulance</a>
       </li>
       <li class="nav-item pl-3 pr-3">
@@ -96,22 +96,22 @@ mysqli_select_db($con,'hospital');
   </div>
 </nav>
 <?php  
-$_SESSION['Table']="inpatient";
-$_SESSION['Update']="adm_inpatient";
+$_SESSION['Table']="outpatient_bill";
+$_SESSION['Update']="outpatient_bill";
 
   ?>
 <section class="fo wy-5">
   <div class="py-5">
-    <h2 class="text-center">InPatient Details</h2>
+    <h2 class="text-center">OutPatient Bill Details</h2>
   </div>
   <div class=" w-50 m-auto">
     <form action="" method="post">
       <div class ="row register-form ">
 <?php  
-if(isset($_GET['Mrdno'])){ 
-$id=$_GET['Mrdno'];
+if(isset($_GET['Bno'])){ 
+$id=$_GET['Bno'];
 // echo "id: $id"
-$selectquery="select * from inpatient where Mrdno=$id";
+$selectquery="select * from outpatient_bill where Bno=$id";
 $query1=mysqli_query($con,$selectquery);
 $result1=mysqli_fetch_assoc($query1);
 // if(isset($_POST['update1'])){
@@ -122,71 +122,38 @@ $result1=mysqli_fetch_assoc($query1);
 
         <div class="col-md-6">
         <div class="form-group">
-          <input type="text" class="form-control" id="MrdNo" name="MrdNo" aria-describedby="MrdNo" placeholder="MrdNo"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Mrdno']; }?>" required > 
+          <input type="text" class="form-control" id="Bno" name="Bno" aria-describedby="Bno" placeholder="Bill no"  value="<?php  if(isset($_GET['Bno'])){ echo $result1['Bno']; }?>" required > 
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Hno</label> -->
-          <input type="Hno" class="form-control" id="Hno" name="Hno" aria-describedby="Hno" placeholder="Hospital no"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Hno']; }?>" required> 
+          <input type="Hno" class="form-control" id="Hno" name="Hno" aria-describedby="Hno" placeholder="Hospital no"  value="<?php  if(isset($_GET['Bno'])){ echo $result1['Hno']; }?>" required> 
         </div>
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">Name</label> -->
-          <input type="Name" class="form-control" id="Name" name="Name" aria-describedby="Name" placeholder="Name"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Name']; }?>" required> 
+          <!-- <label for="exampleInputEmail1">Patientname</label> -->
+          <input type="Patientname" class="form-control" id="Patientname" name="Patientname" aria-describedby="Patientname" placeholder="Patient name"  value="<?php  if(isset($_GET['Bno'])){ echo $result1['Patientname']; }?>" required> 
         </div>
-        <div class="form-group">
-          <!-- <label for="exampleInputEmail1">Age</label> -->
-          <input type="Age" class="form-control" id="Age" name="Age" aria-describedby="Age" placeholder="Age"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Age']; }?>" required> 
-        </div>
-        <div class="form-group">
-          <!-- <label for="exampleInputEmail1">Addr</label> -->
-          <input type="Addr" class="form-control" id="Addr" name="Addr" aria-describedby="Addr" placeholder="Address"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Addr']; }?>" required> 
-        </div>
-        <div class="form-group">
-          <!-- <label for="exampleInputEmail1">DOB</label> -->
-          <input type="text" class="form-control" id="DOB" name="DOB" aria-describedby="DOB" placeholder="Date Of Birth" onfocus="(this.type='date')" onblur="(this.type='text')"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Dob']; }?>" required> 
-        </div>
-  
         </div>
         <div class="col-md-6">
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">Gender</label> -->
-          <input type="Gender" class="form-control" id="Gender" name="Gender" aria-describedby="Gender" placeholder="Gender"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Gender']; }?>" required> 
+          <!-- <label for="exampleInputEmail1">Docname</label> -->
+          <input type="Docname" class="form-control" id="Docname" name="Docname" aria-describedby="Docname" placeholder="Doctor name"  value="<?php  if(isset($_GET['Bno'])){ echo $result1['Docname']; }?>" required> 
         </div>
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">State</label> -->
-          <input type="State" class="form-control" id="State" name="State" aria-describedby="State" placeholder="State"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['State']; }?>" required> 
+          <!-- <label for="exampleInputEmail1">Date</label> -->
+          <input type="text" class="form-control" id="Date" name="Date" aria-describedby="Date" placeholder="Date"   onfocus="(this.type='date')" onblur="(this.type='text')" value="<?php  if(isset($_GET['Bno'])){ echo $result1['Date']; }?>" required> 
         </div>
-  
-        <div class="form-group">
-          <!-- <label for="exampleInputEmail1">District</label> -->
-          <input type="District" class="form-control" id="District" name="District" aria-describedby="District" placeholder="District"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['District']; }?>" required> 
-        </div>
-  
-        
           <div class="form-group">
-            <!-- <label for="exampleInputEmail1">Concession</label> -->
-            <input type="Concession" class="form-control" id="Concession" name="Concession" aria-describedby="Concession" placeholder="Concession"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Concession']; }?>" required> 
-          </div>
-  
-          
-          <div class="form-group ">
-            <!-- <label for="exampleInputEmail1">Referal</label> -->
-            <input type="Referal" class="form-control" id="Referal" name="Referal" aria-describedby="Referal" placeholder="Referal"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Referal']; }?>" required> 
-          </div>
-  
-          
-          <div class="form-group">
-            <!-- <label for="exampleInputEmail1">DOA</label> -->
-            <input type="text" class="form-control" id="DOA" name="DOA" aria-describedby="DOA" placeholder="Date Of Admit" onfocus="(this.type='date')" onblur="(this.type='text')"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['DOA']; }?>" required> 
-          </div>
-  
-        
+          <!-- <label for="exampleInputEmail1">Amount</label> -->
+
+          <input type="number" step="0.01" class="form-control" id="Amount" name="Amount" aria-describedby="Amount" placeholder="Amount"  value="<?php  if(isset($_GET['Bno'])){ echo $result1['Amount']; }?>" required> 
+        </div>        
       </div>
       <!-- <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
       </div> -->
-     <?php  if(isset($_GET['Mrdno'])){  ?>
-       <button type="submit" name="update1" class="btn btn-primary m-auto col-md-4">Update</a></button>
+     <?php  if(isset($_GET['Bno'])){  ?>
+       <button type="submit" name="update1" class="btn btn-primary m-auto col-md-4">Update</button>
     </form> 
       <?php }   else{ ?>
        <button type="submit" name="submit1" class="btn btn-success m-auto col-md-4">Submit</button>
@@ -217,23 +184,17 @@ $result1=mysqli_fetch_assoc($query1);
 </html>
 <?php
 // session_start();
-if(!isset($_GET['Mrdno'])){
+if(!isset($_GET['Bno'])){
 if(isset($_POST['submit1'])){
   // echo "hey1";
-  $e1=$_POST['MrdNo'];
+  $e1=$_POST['Bno'];
   $e2=$_POST['Hno'];
-  $e3=$_POST['Name'];
-  $e4=$_POST['Age'];
-  $e5=$_POST['Addr'];
-  $e6=$_POST['DOB'];
-  $e7=$_POST['Gender'];
-  $e8=$_POST['State'];
-  $e9=$_POST['District'];
-  $e10=$_POST['Concession'];
-  $e11=$_POST['Referal'];
-  $e12=$_POST['DOA'];
-  $insertquery="insert into inpatient (Mrdno, Hno, Name, Age, Addr, Dob, Gender, State, District, Concession, Referal, DOA) values ('$e1','$e2','$e3','$e4','$e5','$e6','$e7','$e8','$e9','$e10','$e11','$e12')";
-  // $insertquery1="insert into inpatient (Mrdno, Hno, Name, Age, Addr, Dob, Gender, State, District, Concession, Referal, Date of admit) values ('1','1','1','1','1','1','1','1','1','1','1','1')";
+  $e3=$_POST['Patientname'];
+  $e5=$_POST['Docname'];
+  $e6=$_POST['Date'];
+  $e7=$_POST['Amount'];
+  $insertquery="insert into outpatient_bill (Bno, Hno, Patientname, Docname, Date, Amount) values ('$e1','$e2','$e3','$e5','$e6','$e7')";
+  // $insertquery1="insert into inpatient (Bno, Hno, Mrdno, Docname, Date, Date, Lab, Ad, Dd, Amount, Amount, Date of admit) values ('1','1','1','1','1','1','1','1','1','1','1','1')";
   $query=mysqli_query($con,$insertquery);
   // $query1=mysqli_query($con,$insertquery1);
   if ($query) {
@@ -254,21 +215,15 @@ if(isset($_POST['submit1'])){
 }
 else{
   if(isset($_POST['update1'])){
-  // echo "hey";
-  $e1=$_GET['Mrdno'];
-  // echo"$e1";
+  echo "hey";
+  $e1=$_GET['Bno'];
+  echo"$e1";
   $e2=$_POST['Hno'];
-  $e3=$_POST['Name'];
-  $e4=$_POST['Age'];
-  $e5=$_POST['Addr'];
-  $e6=$_POST['DOB'];
-  $e7=$_POST['Gender'];
-  $e8=$_POST['State'];
-  $e9=$_POST['District'];
-  $e10=$_POST['Concession'];
-  $e11=$_POST['Referal'];
-  $e12=$_POST['DOA'];
-$updatequery="UPDATE inpatient SET Mrdno='$e1',Hno='$e2',Name='$e3',Age='$e4',Addr='$e5',Dob='$e6',Gender='$e7',State='$e8',District='$e9',Concession='$e10',Referal='$e11',DOA='$e12' where Mrdno=$e1";
+  $e3=$_POST['Patientname'];
+  $e5=$_POST['Docname'];
+  $e6=$_POST['Date'];
+  $e7=$_POST['Amount'];
+$updatequery="UPDATE outpatient_bill SET Bno='$e1',Hno='$e2',Patientname='$e3',Docname='$e5',Date='$e6',Amount='$e7' where Bno=$e1";
 $query=mysqli_query($con,$updatequery);
 if ($query) {
     ?>
