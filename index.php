@@ -161,7 +161,7 @@
 				<figure class="figure">
 					<img src="images/Denim.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
 					<figcaption>
-						<h4>Rohith Harikrishnan</h4>
+						<h4 style="white-space:nowrap;">Rohith Harikrishnan</h4>
 						<p class="figure-caption">....Designation....</p>
 					</figcaption>					
 				</figure>

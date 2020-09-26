@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 if(!isset($_SESSION['USER'])){
   ?>
     <script>
@@ -8,6 +11,8 @@ if(!isset($_SESSION['USER'])){
     </script>
   <?php 
 }
+$con=mysqli_connect('localhost','root');
+mysqli_select_db($con,'hospital');
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,165 +54,123 @@ if(!isset($_SESSION['USER'])){
         </div>
       </li>
 
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Staff
         </a>
         <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
+          <a class="dropdown-item text-white" href="staff.php">Staff Details</a>
+          <a class="dropdown-item text-white" href="attendance.php">Show Attendance</a>
+          <a class="dropdown-item text-white" href="onduty.php">Add Onduty</a>
+          <a class="dropdown-item text-white" href="payroll.php">Payroll</a>
           
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Billing
         </a>
         <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
+          <a class="dropdown-item text-white" href="inpatient_bill.php">Inpatient</a>
           <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
+          <a class="dropdown-item text-white" href="outpatient_bill.php">Outpatient</a>
           
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Consulatation
-        </a>
-        <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
-          
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ward
-        </a>
-        <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
-          
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ambulance
-        </a>
-        <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
-          
-        </div>
-      </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="about.php">Admission</a>
+      <li class="nav-item">
+        <a class="nav-link" href="consultation.php">Consultation</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Staff</a>
+        <a class="nav-link" href="ward.php">Ward</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Billing</a>
+      <li class="nav-item ">
+        <a class="nav-link" href="ambulance.php">Ambulance</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Consultation</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Ward</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Ambulance</a>
-      </li> -->
-      <li class="nav-item">
+      <li class="nav-item pl-3 pr-3">
         <a class="btn btn-outline-danger  " href="logout.php">Logout</a>
       </li>
-      <!-- <li class="nav-item dropdown"> -->
-        <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a> -->
-        <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li> -->
-      <!-- <li >
-        <a class="nav-link" >HI, <?php echo $_SESSION['username'];?> !</a>
-      </li> -->
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0 pl-2">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
   </div>
 </nav>
 <?php  
 $_SESSION['Table']="outpatient";
+$_SESSION['Update']="adm_outpatient";
   ?>
 <section class="fo wy-5">
-	<div class="py-5">
-		<h2 class="text-center">OutPatient Details</h2>
-	</div>
+  <div class="py-5">
+    <h2 class="text-center">Outpatient Details</h2>
+  </div>
   <div class=" w-50 m-auto">
-    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
+    <form action="" method="post">
       <div class ="row register-form ">
+
+
+<?php  
+if(isset($_GET['Hno'])){ 
+$id=$_GET['Hno'];
+// echo "id: $id"
+$selectquery="select * from outpatient where Hno=$id";
+$query1=mysqli_query($con,$selectquery);
+$result1=mysqli_fetch_assoc($query1);
+// if(isset($_POST['update1'])){
+  
+// }
+}
+  ?>
+
         <div class="col-md-6">
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Hno</label> -->
-          <input type="Hno" class="form-control" id="Hno" name="Hno" aria-describedby="Hno" placeholder="Hno" required> 
+          <input type="Hno" class="form-control" id="Hno" name="Hno" aria-describedby="Hno" placeholder="Hospital no"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Hno']; }?>" required> 
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Name</label> -->
-          <input type="text" class="form-control" id="Name" name="Name" aria-describedby="Name" placeholder="Name" required > 
+          <input type="Name" class="form-control" id="Name" name="Name" aria-describedby="Name" placeholder="Name"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Name']; }?>" required> 
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Age</label> -->
-          <input type="Age" class="form-control" id="Age" name="Age" aria-describedby="Age" placeholder="Age" required> 
+          <input type="Age" class="form-control" id="Age" name="Age" aria-describedby="Age" placeholder="Age"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Age']; }?>" required> 
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Addr</label> -->
-          <input type="Addr" class="form-control" id="Addr" name="Addr" aria-describedby="Addr" placeholder="Addr" required> 
+          <input type="Addr" class="form-control" id="Addr" name="Addr" aria-describedby="Addr" placeholder="Address"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Addr']; }?>" required> 
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">DOB</label> -->
-          <input type="text" class="form-control" id="DOB" name="DOB" aria-describedby="DOB" placeholder="DOB" onfocus="(this.type='date')" onblur="(this.type='text')" required> 
+          <input type="text" class="form-control" id="DOB" name="DOB" aria-describedby="DOB" placeholder="Date Of Birth" onfocus="(this.type='date')" onblur="(this.type='text')"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Dob']; }?>" required> 
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Gender</label> -->
-          <input type="Gender" class="form-control" id="Gender" name="Gender" aria-describedby="Gender" placeholder="Gender" required> 
+          <input type="Gender" class="form-control" id="Gender" name="Gender" aria-describedby="Gender" placeholder="Gender"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Gender']; }?>" required> 
         </div>
         </div>
         <div class="col-md-6">
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">State</label> -->
-          <input type="State" class="form-control" id="State" name="State" aria-describedby="State" placeholder="State" required> 
+          <input type="State" class="form-control" id="State" name="State" aria-describedby="State" placeholder="State"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['State']; }?>" required> 
         </div>
+  
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">District</label> -->
-          <input type="District" class="form-control" id="District" name="District" aria-describedby="District" placeholder="District" required> 
+          <input type="District" class="form-control" id="District" name="District" aria-describedby="District" placeholder="District"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['District']; }?>" required> 
         </div>
+  
         
           <div class="form-group">
             <!-- <label for="exampleInputEmail1">Concession</label> -->
-            <input type="Concession" class="form-control" id="Concession" name="Concession" aria-describedby="Concession" placeholder="Concession" required> 
+            <input type="Concession" class="form-control" id="Concession" name="Concession" aria-describedby="Concession" placeholder="Concession"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Concession']; }?>" required> 
           </div>
+  
           
           <div class="form-group ">
             <!-- <label for="exampleInputEmail1">Referal</label> -->
-            <input type="Referal" class="form-control" id="Referal" name="Referal" aria-describedby="Referal" placeholder="Referal" required> 
+            <input type="Referal" class="form-control" id="Referal" name="Referal" aria-describedby="Referal" placeholder="Referal"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Referal']; }?>" required> 
           </div>
+  
           
           <div class="form-group">
             <!-- <label for="exampleInputEmail1">DOA</label> -->
-            <input type="text" class="form-control" id="DOA" name="DOA" aria-describedby="DOA" placeholder="DOA" onfocus="(this.type='date')" onblur="(this.type='text')" required> 
+            <input type="text" class="form-control" id="DOA" name="DOA" aria-describedby="DOA" placeholder="Date Of Admit" onfocus="(this.type='date')" onblur="(this.type='text')"  value="<?php  if(isset($_GET['Hno'])){ echo $result1['Date']; }?>" required> 
           </div>
         
       </div>
@@ -215,8 +178,13 @@ $_SESSION['Table']="outpatient";
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
       </div> -->
+      <?php  if(isset($_GET['Hno'])){  ?>
+       <button type="submit" name="update1" class="btn btn-primary m-auto col-md-4">Update</a></button>
+    </form> 
+    <?php }   else{ ?>
        <button type="submit" name="submit" class="btn btn-success m-auto col-md-4">Submit</button>
      </form>
+      <?php  } ?>
      <form>
        <button type="submit" name="submit1" class="btn btn-warning m-auto"> <a class="text-white" href="select.php">Show Table</a></button>
     </form>
@@ -234,8 +202,8 @@ $_SESSION['Table']="outpatient";
 </html>
 <?php
 // session_start();
-$con=mysqli_connect('localhost','root');
-mysqli_select_db($con,'hospital');
+
+if(!isset($_GET['Hno'])){
 if(isset($_POST['submit'])){
   $e2=$_POST['Hno'];
   $e3=$_POST['Name'];
@@ -264,5 +232,41 @@ if(isset($_POST['submit'])){
    </script>
    <?php
   }
+}
+}
+else{
+  if(isset($_POST['update1'])){
+  // echo "hey";
+  // echo"$e1";
+  $e2=$_GET['Hno'];
+  $e3=$_POST['Name'];
+  $e4=$_POST['Age'];
+  $e5=$_POST['Addr'];
+  $e6=$_POST['DOB'];
+  $e7=$_POST['Gender'];
+  $e8=$_POST['State'];
+  $e9=$_POST['District'];
+  $e10=$_POST['Concession'];
+  $e11=$_POST['Referal'];
+  $e12=$_POST['DOA'];
+$updatequery="UPDATE outpatient SET Hno='$e2',Name='$e3',Age='$e4',Addr='$e5',Dob='$e6',Gender='$e7',State='$e8',District='$e9',Concession='$e10',Referal='$e11', 'Date' ='$e12' where Hno=$e2";
+$query=mysqli_query($con,$updatequery);
+if ($query) {
+    ?>
+   <script>
+     alert('Updated successful');
+     location.replace("select.php");
+   </script>
+   <?php
+  }
+  else{
+    ?>
+   <script>
+     alert('Not updated');
+     location.replace("select.php");
+   </script>
+   <?php
+  }
+}
 }
 ?>
