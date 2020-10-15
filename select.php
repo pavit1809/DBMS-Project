@@ -90,8 +90,14 @@ if(!isset($_SESSION['USER'])){
     </ul>
   </div>
 </nav>
+<form>
+  <div class="pl-5 pt-5">
+    <button type="search" name="search" class="btn btn-warning m-auto"> <a class="text-white" href="search.php">Search by <?php echo $_SESSION['Attr'];?></a>
+    </button>
+  </div>
+</form>
 <?php
-// if(isset($_POST['submit1'])){
+
   $con=mysqli_connect('localhost','root');
   mysqli_select_db($con,'hospital');
   $table=$_SESSION['Table'];

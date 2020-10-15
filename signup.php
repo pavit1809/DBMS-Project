@@ -22,11 +22,11 @@
       <li class="nav-item ">
         <a class="nav-link" href="index.php">Home</a>
       </li>
-       <li class="nav-item">
+       <li class="nav-item active">
         <a class="nav-link" href="signup.php">Sign Up</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="login.php">Login<span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -39,16 +39,16 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Login</h1>
-    <p class="lead">Login through your username and password </p>
+    <h1 class="display-4">Signup</h1>
+    <p class="lead">Signup by entering your username and password </p>
   </div>
 </div>
 <section class="wy-5">
 	<div class="py-5">
-		<h2 class="text-center">Login</h2>
+		<h2 class="text-center">Signup</h2>
 	</div>
 	<div class=" w-50 m-auto">
-		<form action="login_info.php" method="post">
+		<form action="signup_info.php" method="post">
 		  <div class="form-group">
 		    <label for="exampleInputUser">Username</label>
 		    <input type="user" class="form-control" id="exampleInputUser" name="username" aria-describedby="userHelp" placeholder="Username"> 

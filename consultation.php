@@ -97,6 +97,7 @@ mysqli_select_db($con,'hospital');
 <?php  
 $_SESSION['Table']="outpatient_bill";
 $_SESSION['Update']="outpatient_bill";
+
 $table=$_SESSION['Table'];
   $selectquery="select Patientname, Docname from  outpatient_bill ";
   $query1=mysqli_query($con,$selectquery);

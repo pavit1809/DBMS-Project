@@ -95,6 +95,7 @@ mysqli_select_db($con,'hospital');
 <?php  
 $_SESSION['Table']="outpatient";
 $_SESSION['Update']="adm_outpatient";
+$_SESSION['Attr']="Hno";
   ?>
 <section class="fo wy-5">
   <div class="py-5">
