@@ -24,6 +24,9 @@
         <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="signup.php">Sign Up</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
       </li>
       <!-- <li class="nav-item">
@@ -142,7 +145,7 @@
 					<img src="images/Denim.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
 					<figcaption>
 						<h4>Anuraj Agarwal</h4>
-						<p class="figure-caption">....Designation....</p>
+						<p class="figure-caption"></p>
 					</figcaption>
 					
 				</figure>
@@ -153,7 +156,7 @@
 					<img src="images/Denim.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
 					<figcaption>
 						<h4>Pavitra Goyal</h4>
-						<p class="figure-caption">....Designation....</p>
+						<p class="figure-caption"></p>
 					</figcaption>					
 				</figure>				
 			</div>
@@ -162,7 +165,7 @@
 					<img src="images/Denim.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
 					<figcaption>
 						<h4 style="white-space:nowrap;">Rohith Harikrishnan</h4>
-						<p class="figure-caption">....Designation....</p>
+						<p class="figure-caption"></p>
 					</figcaption>					
 				</figure>
 			</div>
@@ -171,7 +174,7 @@
 					<img src="images/Denim.jpg" class="figure-img img-fluid rounded-circle" height="250px" width="250px">
 					<figcaption>
 						<h4>Shatayu Mittal</h4>
-						<p class="figure-caption">....Designation....</p>
+						<p class="figure-caption"></p>
 					</figcaption>					
 				</figure>			
 			</div>

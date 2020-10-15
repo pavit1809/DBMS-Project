@@ -98,7 +98,7 @@ mysqli_select_db($con,'hospital');
 <?php  
 $_SESSION['Table']="staff";
 $_SESSION['Update']="staff";
-
+$_SESSION['Attr']="Name";
   ?>
 <section class="fo wy-5">
   <div class="py-5">
@@ -134,7 +134,7 @@ $result1=mysqli_fetch_assoc($query1);
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1"> Doj</label> -->
-          <input type="Doj" class="form-control" id="Doj" name="Doj" aria-describedby="Doj" placeholder="Date Of Joining" onfocus="(this.type='time')" onblur="(this.type='text')" value="<?php  if(isset($_GET['Idno'])){ echo $result1['Doj']; }?>" required> 
+          <input type="Doj" class="form-control" id="Doj" name="Doj" aria-describedby="Doj" placeholder="Date Of Joining" onfocus="(this.type='date')" onblur="(this.type='text')" value="<?php  if(isset($_GET['Idno'])){ echo $result1['Doj']; }?>" required> 
         </div>
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Gender</label> -->

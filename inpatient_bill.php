@@ -83,16 +83,8 @@ mysqli_select_db($con,'hospital');
       <li class="nav-item">
         <a class="nav-link" href="consultation.php">Consultation</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ward
-        </a>
-        <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-white" href="#">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white" href="#">Outpatient</a>
-          
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="ward.php">Ward</a>
       </li>
        <li class="nav-item ">
         <a class="nav-link" href="ambulance.php">Ambulance</a>
@@ -106,7 +98,7 @@ mysqli_select_db($con,'hospital');
 <?php  
 $_SESSION['Table']="inpatient_bill";
 $_SESSION['Update']="inpatient_bill";
-
+$_SESSION['Attr']="Bno";
   ?>
 <section class="fo wy-5">
   <div class="py-5">

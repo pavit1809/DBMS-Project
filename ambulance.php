@@ -94,10 +94,11 @@ mysqli_select_db($con,'hospital');
     </ul>
   </div>
 </nav>
+
 <?php  
 $_SESSION['Table']="ambulance";
 $_SESSION['Update']="ambulance";
-
+$_SESSION['Attr']="Amno";
   ?>
 <section class="fo wy-5">
   <div class="py-5">

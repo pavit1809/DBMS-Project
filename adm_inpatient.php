@@ -36,6 +36,7 @@ mysqli_select_db($con,'hospital');
     <span class="navbar-toggler-icon"></span>
   </button>
 
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
@@ -51,7 +52,6 @@ mysqli_select_db($con,'hospital');
         </a>
         <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
           <a class="dropdown-item text-white" href="adm_inpatient.php">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
           <a class="dropdown-item text-white" href="adm_outpatient.php">Outpatient</a>
           
         </div>
@@ -66,6 +66,7 @@ mysqli_select_db($con,'hospital');
           <a class="dropdown-item text-white" href="attendance.php">Show Attendance</a>
           <a class="dropdown-item text-white" href="onduty.php">Add Onduty</a>
           <a class="dropdown-item text-white" href="payroll.php">Payroll</a>
+
           
         </div>
       </li>
@@ -75,7 +76,6 @@ mysqli_select_db($con,'hospital');
         </a>
         <div class="dropdown-menu bg-dark rounded-border" aria-labelledby="navbarDropdown">
           <a class="dropdown-item text-white" href="inpatient_bill.php">Inpatient</a>
-          <!-- <div class="dropdown-divider"></div> -->
           <a class="dropdown-item text-white" href="outpatient_bill.php">Outpatient</a>
           
         </div>
@@ -98,7 +98,7 @@ mysqli_select_db($con,'hospital');
 <?php  
 $_SESSION['Table']="inpatient";
 $_SESSION['Update']="adm_inpatient";
-
+$_SESSION['Attr']="Hno";
   ?>
 <section class="fo wy-5">
   <div class="py-5">
@@ -110,13 +110,10 @@ $_SESSION['Update']="adm_inpatient";
 <?php  
 if(isset($_GET['Mrdno'])){ 
 $id=$_GET['Mrdno'];
-// echo "id: $id"
 $selectquery="select * from inpatient where Mrdno=$id";
 $query1=mysqli_query($con,$selectquery);
 $result1=mysqli_fetch_assoc($query1);
-// if(isset($_POST['update1'])){
-  
-// }
+
 }
   ?>
 
@@ -133,58 +130,45 @@ $result1=mysqli_fetch_assoc($query1);
           <input type="Name" class="form-control" id="Name" name="Name" aria-describedby="Name" placeholder="Name"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Name']; }?>" required> 
         </div>
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">Age</label> -->
           <input type="Age" class="form-control" id="Age" name="Age" aria-describedby="Age" placeholder="Age"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Age']; }?>" required> 
         </div>
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">Addr</label> -->
           <input type="Addr" class="form-control" id="Addr" name="Addr" aria-describedby="Addr" placeholder="Address"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Addr']; }?>" required> 
         </div>
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">DOB</label> -->
           <input type="text" class="form-control" id="DOB" name="DOB" aria-describedby="DOB" placeholder="Date Of Birth" onfocus="(this.type='date')" onblur="(this.type='text')"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Dob']; }?>" required> 
         </div>
   
         </div>
         <div class="col-md-6">
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">Gender</label> -->
           <input type="Gender" class="form-control" id="Gender" name="Gender" aria-describedby="Gender" placeholder="Gender"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Gender']; }?>" required> 
         </div>
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">State</label> -->
           <input type="State" class="form-control" id="State" name="State" aria-describedby="State" placeholder="State"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['State']; }?>" required> 
         </div>
   
         <div class="form-group">
-          <!-- <label for="exampleInputEmail1">District</label> -->
           <input type="District" class="form-control" id="District" name="District" aria-describedby="District" placeholder="District"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['District']; }?>" required> 
         </div>
   
         
           <div class="form-group">
-            <!-- <label for="exampleInputEmail1">Concession</label> -->
             <input type="Concession" class="form-control" id="Concession" name="Concession" aria-describedby="Concession" placeholder="Concession"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Concession']; }?>" required> 
           </div>
   
           
           <div class="form-group ">
-            <!-- <label for="exampleInputEmail1">Referal</label> -->
             <input type="Referal" class="form-control" id="Referal" name="Referal" aria-describedby="Referal" placeholder="Referal"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['Referal']; }?>" required> 
           </div>
   
           
           <div class="form-group">
-            <!-- <label for="exampleInputEmail1">DOA</label> -->
             <input type="text" class="form-control" id="DOA" name="DOA" aria-describedby="DOA" placeholder="Date Of Admit" onfocus="(this.type='date')" onblur="(this.type='text')"  value="<?php  if(isset($_GET['Mrdno'])){ echo $result1['DOA']; }?>" required> 
           </div>
   
         
       </div>
-      <!-- <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
-      </div> -->
      <?php  if(isset($_GET['Mrdno'])){  ?>
        <button type="submit" name="update1" class="btn btn-primary m-auto col-md-4">Update</a></button>
     </form> 
